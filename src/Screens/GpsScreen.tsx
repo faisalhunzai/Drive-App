@@ -15,7 +15,7 @@ const GpsScreen = () => {
         style={styles.gpsImage}
       />
       <View style={styles.gpsTextCard}>
-        <Text style={styles.titleText}>{greetingText}</Text>
+        <Text style={styles.titleText}>Hi, nice to meet you!</Text>
         <Text style={styles.paraText}>{instructionText}</Text>
       </View>
        
