@@ -5,8 +5,7 @@ import CustomButton from '../component/Button';
 import { Icon } from '../component/Icon';
 
 const GpsScreen = () => {
-  const greetingText = "Hi, nice to meet you!";
-  const instructionText = "Choose your location to start finding\nrestaurants around you.";
+ 
 
   return (
     <View style={styles.container}>
@@ -16,7 +15,7 @@ const GpsScreen = () => {
       />
       <View style={styles.gpsTextCard}>
         <Text style={styles.titleText}>Hi, nice to meet you!</Text>
-        <Text style={styles.paraText}>{instructionText}</Text>
+        <Text style={styles.paraText}>Choose your location to start finding{'\n'}restaurants around you.</Text>
       </View>
        
        <View>
