@@ -14,19 +14,19 @@ const RequestRideFlow: React.FC = () => {
 
  
   const getContent = () => {
-    if (currentStep === 1) {
+    if (currentStep == 1) {
       return {
         image: require('../../Asset/Image/Page1.png'),
         title: 'Request Ride',
         description: 'Request a ride, get picked up by a\nnearby community driver',
       };
-    } else if (currentStep === 2) {
+    } else if (currentStep == 2) {
       return {
         image: require('../../Asset/Image/Page2.png'),
         title: 'Confirm Your Driver',
         description: 'Huge drivers network helps you find\ncomfortable, safe and cheap ride',
       };
-    } else if (currentStep === 3) {
+    } else if (currentStep == 3) {
       return {
         image: require('../../Asset/Image/Page3.png'),
         title: 'Track Your Ride',

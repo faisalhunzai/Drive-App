@@ -83,7 +83,8 @@ const styles = StyleSheet.create({
   text :{
     fontWeight :'300',
     fontSize :17,
-    color :Colors.black
+    color :Colors.black,
+    marginTop :30
   },
   line :{
     width  :133,

@@ -1,14 +1,12 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import React, { useState } from 'react'; // Import useState
+import React, { useState } from 'react';
 import Colors from '../component/Colors';
-import HrLine from '../component/hrLine';
-import CustomButton from '../component/Button';
-import { useNavigation } from '@react-navigation/native';
+
 import RequestRideComponent from '../component/RequestRideFlow';
 
 const RequestRideScreen = () => {
 
-  const navigation = useNavigation();
+ 
   
   const [currentButton, setCurrentButton] = useState<number>(1);
 
