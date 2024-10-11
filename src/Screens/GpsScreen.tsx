@@ -3,8 +3,10 @@ import React from 'react';
 import Colors from '../component/Colors';
 import CustomButton from '../component/Button';
 import { Icon } from '../component/Icon';
+import { useNavigation } from '@react-navigation/native';
 
 const GpsScreen = () => {
+  const navigation = useNavigation();
  
 
   return (
@@ -19,7 +21,7 @@ const GpsScreen = () => {
       </View>
        
        <View>
-         <TouchableOpacity style={styles.locationButton}>
+         <TouchableOpacity style={styles.locationButton} onPress={() => navigation.navigate('SignUpScreen')}>
             <Icon.Entypo name="paper-plane" size={30} color='rgba(240, 196, 20, 1)'/> 
             <Text style={styles.locationButtonText}>Use Current Loction</Text>
          </TouchableOpacity>
@@ -75,7 +77,8 @@ const styles = StyleSheet.create({
     marginTop: 30,
     justifyContent :'center',
     alignItems :'center',
-    flexDirection :'row'
+    flexDirection :'row',
+    gap :10
   },
   locationButtonText :{
      color :Colors.GoldenYellow

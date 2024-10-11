@@ -3,4 +3,5 @@ export default {
     white :'white',
     black :'black',
     LavenderGray :'rgba(239, 239, 244, 1)',
+    lightgray : '#ccc'
 }
