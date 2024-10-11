@@ -84,6 +84,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+          applicationId "com.driveapp"
     }
     signingConfigs {
         debug {
@@ -120,3 +121,4 @@ dependencies {
  
 }
 apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
+apply plugin: 'com.google.gms.google-services'
