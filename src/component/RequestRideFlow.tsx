@@ -6,48 +6,48 @@ import CustomButton from './Button';
 import { useNavigation } from '@react-navigation/native';
 
 
+interface RequestRideFlowProps {
+  initialStep?: number;
+  stepContents?: {
+    image: any;
+    title: string;
+    description: string;
+  }[];
+}
 
-
-const RequestRideFlow: React.FC = () => {
-  const [currentStep, setCurrentStep] = useState(1);
+const RequestRideFlow: React.FC<RequestRideFlowProps> = ({
+  initialStep = 1,
+  stepContents = [
+    {
+      image: require('../../Asset/Image/Page1.png'),
+      title: 'Request Ride',
+      description: 'Request a ride, get picked up by a\nnearby community driver',
+    },
+    {
+      image: require('../../Asset/Image/Page2.png'),
+      title: 'Confirm Your Driver',
+      description: 'Huge drivers network helps you find\ncomfortable, safe and cheap ride',
+    },
+    {
+      image: require('../../Asset/Image/Page3.png'),
+      title: 'Track Your Ride',
+      description: 'Know your driver in advance and be\nable to view current location in real\ntime on the map',
+    },
+  ],
+}) => {
+  const [currentStep, setCurrentStep] = useState(initialStep);
   const navigation = useNavigation();
 
- 
-  const getContent = () => {
-    if (currentStep == 1) {
-      return {
-        image: require('../../Asset/Image/Page1.png'),
-        title: 'Request Ride',
-        description: 'Request a ride, get picked up by a\nnearby community driver',
-      };
-    } else if (currentStep == 2) {
-      return {
-        image: require('../../Asset/Image/Page2.png'),
-        title: 'Confirm Your Driver',
-        description: 'Huge drivers network helps you find\ncomfortable, safe and cheap ride',
-      };
-    } else if (currentStep == 3) {
-      return {
-        image: require('../../Asset/Image/Page3.png'),
-        title: 'Track Your Ride',
-        description: 'Know your driver in advance and be\nable to view current location in real\ntime on the map',
-      };
-    }
-    return null;
-  };
+  const content = stepContents[currentStep - 1];
 
-  const content = getContent();
-
- 
   const handleNextStep = () => {
-    if (currentStep < 3) {
+    if (currentStep < stepContents.length) {
       setCurrentStep(currentStep + 1);
     }
   };
 
   return (
     <View>
-     
       <TouchableOpacity onPress={handleNextStep}>
         <View>
           <Image source={content?.image} style={styles.requestImage} />
@@ -58,8 +58,7 @@ const RequestRideFlow: React.FC = () => {
         </View>
       </TouchableOpacity>
 
-     
-      {currentStep === 3 && (
+      {currentStep === stepContents.length && (
         <View>
           <CustomButton
             title="GET STARTED!"
@@ -70,12 +69,16 @@ const RequestRideFlow: React.FC = () => {
         </View>
       )}
 
-     
       <View style={styles.lineCenter}>
         <View style={styles.lineContainer}>
-          <HrLine width={40} height={10} color={currentStep === 1 ? Colors.GoldenYellow : Colors.LavenderGray} />
-          <HrLine width={40} height={10} color={currentStep === 2 ? Colors.GoldenYellow : Colors.LavenderGray} />
-          <HrLine width={40} height={10} color={currentStep === 3 ? Colors.GoldenYellow : Colors.LavenderGray} />
+          {stepContents.map((_, index) => (
+            <HrLine
+              key={index}
+              width={40}
+              height={10}
+              color={currentStep === index + 1 ? Colors.GoldenYellow : Colors.LavenderGray}
+            />
+          ))}
         </View>
       </View>
     </View>
